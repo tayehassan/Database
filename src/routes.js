@@ -5,8 +5,9 @@ const subscriberRouter = express.Router();
 
 const usersRouter = express.Router();
 
-subscriberRouter.post("/subscribe", emailSubscribe);
-subscriberRouter.put("/unsubscribe/:id", emailUnsubscribed);
+subscriberRouter
+  .post("/subscribe", emailSubscribe)
+  .put("/unsubscribe/:id", emailUnsubscribed);
 
 usersRouter.post();
 
