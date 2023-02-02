@@ -1,5 +1,5 @@
 const express = require("express");
-const subscriberRouter = require("./routes");
+const { subscribersRouter, usersRouter } = require("./routes");
 // const { errorMiddleware, notFoundMiddleware } = require("./src/middleware");
 
 const app = express();
@@ -11,7 +11,8 @@ app.get("/", (req, res) => {
   res.json({ msg: "welcome to Voiceout2me Email Subscribers Database" });
 });
 
-app.use("/Newsletter", subscriberRouter);
+app.use("/Newsletter", subscribersRouter);
+app.use("/user", usersRouter);
 
 // app.use(errorMiddleware);
 // app.use(notFoundMiddleware);

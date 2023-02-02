@@ -1,14 +1,20 @@
 const express = require("express");
-const { emailSubscribe, emailUnsubscribed } = require("./controllers");
+const {
+  emailSubscribe,
+  emailUnsubscribed,
+  login,
+  signup,
+} = require("./controllers");
 
-const subscriberRouter = express.Router();
+const subscribersRouter = express.Router();
 
 const usersRouter = express.Router();
 
-subscriberRouter
+subscribersRouter
   .post("/subscribe", emailSubscribe)
   .put("/unsubscribe/:id", emailUnsubscribed);
 
-usersRouter.post();
+usersRouter.post("/login", login);
+usersRouter.post("/signup", signup);
 
-module.exports = subscriberRouter;
+module.exports = { subscribersRouter, usersRouter };

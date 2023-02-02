@@ -1,9 +1,8 @@
-require("dotenv").config()
+require("dotenv").config();
 const app = require("./src/app");
 
 const { connect, set } = require("mongoose");
-set("strictQuery", false);
-
+set("strictQuery", true);
 
 const PORT = process.env.PORT || 8080;
 
@@ -13,6 +12,6 @@ const PORT = process.env.PORT || 8080;
     console.log("connection to the database is successful");
     app.listen(PORT, () => console.log(`you are running on localhost:${PORT}`));
   } catch (err) {
-    console.log("connection to the database failed");
+    console.log("connection to the database failed", err);
   }
 })();

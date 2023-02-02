@@ -11,9 +11,30 @@ const NewsletterSchema = new Schema(
   { timestamps: true }
 );
 
-const newsletterModel = model("Newsletter", NewsletterSchema);
+const userSchema = new Schema(
+  {
+    name: {
+      type: String,
+      require: true,
+    },
+    email: {
+      type: String,
+      require: true,
+    },
+    password: {
+      type: String,
+      require: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-module.exports = { newsletterModel };
+const newsletterModel = new model("Newsletter", NewsletterSchema);
+const User = new model("user", userSchema);
+
+module.exports = { newsletterModel, User };
 
 // database
 // collection
